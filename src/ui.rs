@@ -22,7 +22,7 @@ pub fn setup_menu(mut commands: Commands) {
         })
         .with_children(|parent| {
             parent.spawn(TextBundle::from_section(
-                "🏴‍☠️ Pirate FinOps Treasure Hunt",
+                "Pirate FinOps Treasure Hunt",
                 TextStyle {
                     font_size: 48.0,
                     color: Color::srgb(1.0, 0.8, 0.2),
@@ -78,7 +78,14 @@ pub fn menu_system(
         (Changed<Interaction>, With<Button>),
     >,
     mut next_state: ResMut<NextState<crate::GameState>>,
+    keyboard: Res<ButtonInput<KeyCode>>,
 ) {
+    // Allow keyboard to start the game
+    if keyboard.just_pressed(KeyCode::Space) || keyboard.just_pressed(KeyCode::Enter) {
+        next_state.set(crate::GameState::Playing);
+        return;
+    }
+
     for (interaction, mut color, button) in &mut interaction_query {
         match *interaction {
             Interaction::Pressed => {
@@ -378,9 +385,9 @@ pub fn update_ui(
 
 pub fn setup_game_over(mut commands: Commands, game_data: Res<GameData>) {
     let (title, color) = if game_data.game_won {
-        ("🏴‍☠️ Arr! Ye Plundered the Treasure!", Color::srgb(0.8, 0.7, 0.2))
+        ("Arr! Ye Plundered the Treasure!", Color::srgb(0.8, 0.7, 0.2))
     } else {
-        ("☠️ Walk the Plank! Yer Coffers Be Empty!", Color::srgb(0.8, 0.2, 0.2))
+        ("Walk the Plank! Yer Coffers Be Empty!", Color::srgb(0.8, 0.2, 0.2))
     };
 
     commands

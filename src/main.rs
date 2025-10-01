@@ -23,7 +23,7 @@ fn main() {
 
     app.add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
-            title: "🏴‍☠️ Pirate FinOps Treasure Hunt".into(),
+            title: "Pirate FinOps Treasure Hunt".into(),
             resolution: (960., 720.).into(),
             canvas: Some("#game-canvas".into()),
             prevent_default_event_handling: false,

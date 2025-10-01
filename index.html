@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏴‍☠️ Pirate FinOps Treasure Hunt</title>
+    <title>Pirate FinOps Treasure Hunt</title>
+    <link data-trunk rel="rust" data-bin="pirate-finops" />
     <style>
         body {
             margin: 0;
@@ -92,7 +93,7 @@
                 console.error('Failed to load game:', error);
                 document.getElementById('loading').innerHTML = `
                     <div class="error">
-                        <h2>⚠️ Failed to load game</h2>
+                        <h2>Failed to load game</h2>
                         <p>${error.message}</p>
                         <p>Please refresh the page to try again.</p>
                     </div>
