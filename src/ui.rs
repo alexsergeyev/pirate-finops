@@ -378,9 +378,9 @@ pub fn update_ui(
 
 pub fn setup_game_over(mut commands: Commands, game_data: Res<GameData>) {
     let (title, color) = if game_data.game_won {
-        ("🎉 Victory! You saved the budget!", Color::srgb(0.2, 0.8, 0.2))
+        ("🏴‍☠️ Arr! Ye Plundered the Treasure!", Color::srgb(0.8, 0.7, 0.2))
     } else {
-        ("☠️ You're FIRED! Budget depleted!", Color::srgb(0.8, 0.2, 0.2))
+        ("☠️ Walk the Plank! Yer Coffers Be Empty!", Color::srgb(0.8, 0.2, 0.2))
     };
 
     commands
@@ -446,7 +446,7 @@ pub fn setup_game_over(mut commands: Commands, game_data: Res<GameData>) {
                 })
                 .with_children(|parent| {
                     parent.spawn(TextBundle::from_section(
-                        "Play Again",
+                        "Set Sail Again",
                         TextStyle {
                             font_size: 32.0,
                             color: Color::srgb(0.9, 0.9, 0.9),
